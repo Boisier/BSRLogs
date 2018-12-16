@@ -5,6 +5,8 @@
 //  Created by Valentin Dufois on 15/12/2018.
 //
 
+import Foundation
+
 open class BSRLogs {
 	/// Print an informational message to the console
 	///
@@ -14,7 +16,7 @@ open class BSRLogs {
 			  fromLine 	  line: Int    = #line,
 			  ofMethod  method: String = #function,
 				ofFile    file: String = #file) {
-		raw("[\(file):\(method):\(line)] \(message)")
+		raw(message, location: locationBlock(file, method, line), prefix: ">")
 	}
 
 	/// Print a warning message to the console
@@ -27,7 +29,7 @@ open class BSRLogs {
 				  fromLine    line: Int    = #line,
 				  ofMethod  method: String = #function,
 				  ofFile      file: String = #file) {
-		raw("⚠️ [\(file):\(method):\(line)] \(message)")
+		raw(message, location: locationBlock(file, method, line), prefix: "⚠️")
 	}
 
 	/// Print an error message to the console
@@ -42,11 +44,24 @@ open class BSRLogs {
 						 fromLine    line: Int    = #line,
 						 ofMethod  method: String = #function,
 						 ofFile      file: String = #file) {
-		raw("❗️ [\(file):\(method):\(line)] \(message)")
+		raw(message, location: locationBlock(file, method, line), prefix: "❗️")
 	}
 
-	public static func raw(_ message: String) {
-		print(message)
+	/// Will print the given information on the console wih limited formatting
+	///
+	/// - Parameters:
+	///   - message: The main message
+	///   - location: Any location informations
+	///   - prefix: Any needed prefix
+	public static func raw(_ message: String, location: String = "", prefix: String = "") {
+		print("\(prefix) [\(location)] \(message)")
+	}
+
+	internal static func locationBlock(_ file: String, _ method: String, _ line:Int) -> String {
+
+		let fileName = URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
+
+		return "\(fileName):\(method):\(line)"
 	}
 }
 
