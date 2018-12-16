@@ -62,8 +62,11 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform = :ios, :osx
+  s.swift_version = "4.2"
+
+  s.ios.deployment_target = "10.0"
+  s.osx.deployment_target = "10.10"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -89,7 +92,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Sources/BSRLogs/**/*"
+  s.source_files  = "Sources/BSRLogs/BSRLogs.swift"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -128,9 +131,14 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.xcconfig = {
+    "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2",
+    "EXPANDED_CODE_SIGN_IDENTITY": "-",
+    "EXPANDED_CODE_SIGN_IDENTITY_NAME": "-"
+  }
+
+# s.dependency "JSONKit", "~> 1.4"
 
 end
