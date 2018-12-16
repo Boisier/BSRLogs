@@ -5,7 +5,7 @@
 //  Created by Valentin Dufois on 15/12/2018.
 //
 
-class BSRLogs {
+open class BSRLogs {
 	/// Print an informational message to the console
 	///
 	/// - Parameters:
