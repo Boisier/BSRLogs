@@ -21,8 +21,5 @@ let package = Package(
         .target(
             name: "BSRLogs",
             dependencies: []),
-        .testTarget(
-            name: "BSRLogsTests",
-            dependencies: ["BSRLogs"]),
     ]
 )
