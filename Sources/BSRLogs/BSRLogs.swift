@@ -50,4 +50,4 @@ open class BSRLogs {
 	}
 }
 
-typealias Log = BSRLogs
+public typealias Log = BSRLogs
