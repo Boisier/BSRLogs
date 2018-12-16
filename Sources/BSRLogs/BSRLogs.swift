@@ -23,7 +23,7 @@ open class BSRLogs {
 	///
 	/// - Parameters:
 	///   - message: The message to print
-	public public static func warning (       _ message: String,
+	public static func warning (       _ message: String,
 				  fromLine    line: Int    = #line,
 				  ofMethod  method: String = #function,
 				  ofFile      file: String = #file) {
