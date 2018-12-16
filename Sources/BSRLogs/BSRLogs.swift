@@ -10,7 +10,7 @@ open class BSRLogs {
 	///
 	/// - Parameters:
 	///   - message: The message to print
-	static func info (		 _ message: String,
+	public static func info (		 _ message: String,
 			  fromLine 	  line: Int    = #line,
 			  ofMethod  method: String = #function,
 				ofFile    file: String = #file) {
@@ -23,7 +23,7 @@ open class BSRLogs {
 	///
 	/// - Parameters:
 	///   - message: The message to print
-	static func warning (       _ message: String,
+	public public static func warning (       _ message: String,
 				  fromLine    line: Int    = #line,
 				  ofMethod  method: String = #function,
 				  ofFile      file: String = #file) {
@@ -38,14 +38,14 @@ open class BSRLogs {
 	///
 	/// - Parameters:
 	///   - message: The message to print
-	static func error (       _ message: String,
+	public static func error (       _ message: String,
 						 fromLine    line: Int    = #line,
 						 ofMethod  method: String = #function,
 						 ofFile      file: String = #file) {
 		raw("❗️ [\(file):\(method):\(line)] \(message)")
 	}
 
-	static func raw(_ message: String) {
+	public static func raw(_ message: String) {
 		print(message)
 	}
 }
