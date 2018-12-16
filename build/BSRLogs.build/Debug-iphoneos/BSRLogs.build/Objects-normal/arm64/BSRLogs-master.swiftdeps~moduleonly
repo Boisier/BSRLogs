@@ -1,0 +1,5 @@
+version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+options: "ebb9accf54ef90494660bf7127404c5f"
+build_time: [1544923119, 373968000]
+inputs:
+  "/Users/val/Projects/SwiftModules/BSRLogs/Sources/BSRLogs/BSRLogs.swift": [1544923088, 0]
